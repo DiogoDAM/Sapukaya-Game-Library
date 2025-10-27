@@ -90,4 +90,6 @@ public sealed class Transform2D
 
 		LocalRotation = (float)Math.Atan2(dir.Y, dir.X);
 	}
+
+	public override string ToString() => $"{Position}, {Rotation}, {Scale}";
 }

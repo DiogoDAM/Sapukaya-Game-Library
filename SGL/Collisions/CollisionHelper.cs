@@ -24,24 +24,24 @@ public static class CollisionHelper
 
 	public static bool BoxWithCircle(BoxCollider b, CircleCollider c) 
 	{
-		float closestX = MathHelper.Clamp(c.Position.X, b.Left, b.Right);
-		float closestY = MathHelper.Clamp(c.Position.Y, b.Top, b.Bottom);
+		float closestX = MathHelper.Clamp(c.Center.X, b.Left, b.Right);
+		float closestY = MathHelper.Clamp(c.Center.Y, b.Top, b.Bottom);
 
-		float dx = c.Position.X - closestX;
-		float dy = c.Position.Y - closestY;
+		float dx = c.Center.X - closestX;
+		float dy = c.Center.Y - closestY;
 
 		return dx * dx + dy * dy <= c.Radius * c.Radius;
 	}
 
 	public static bool CircleWithCircle(CircleCollider c1, CircleCollider c2)
 	{
-		Vector2 d = c2.Position - c1.Position;
+		Vector2 d = c2.Center - c1.Center;
 		return d.Length() <= c1.Radius + c2.Radius;
 	}
 
 	public static bool CircleWithVector2(CircleCollider c, Vector2 v)
 	{
-		Vector2 d = v - c.Position;
+		Vector2 d = v - c.Center;
 		return d.Length() <= c.Radius;
 	}
 

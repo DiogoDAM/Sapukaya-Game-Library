@@ -5,9 +5,17 @@ namespace Sgl;
 public sealed class CircleCollider : Collider
 {
 	public int Radius;
+	public int Diameter => Radius*2;
+
+	public Vector2 Center => new Vector2(Position.X + Radius, Position.Y + Radius);
 
 	public CircleCollider() : base()
 	{
+	}
+
+	public CircleCollider(int radius) : base()
+	{
+		Radius = radius;
 	}
 
 	protected override bool CollidesWith(BoxCollider box)

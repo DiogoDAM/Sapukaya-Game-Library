@@ -16,6 +16,12 @@ public sealed class BoxCollider : Collider
 	{
 	}
 
+	public BoxCollider(int w, int h) : base()
+	{
+		Width = w;
+		Height = h;
+	}
+
 	protected override bool CollidesWith(BoxCollider box)
 	{
 		return CollisionHelper.BoxWithBox(this, box);
